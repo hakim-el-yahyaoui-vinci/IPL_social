@@ -21,4 +21,12 @@ describe('Email Validator', () => {
         expect(validateEmail("toto @gmail.com")).toBe(false);
         expect(validateEmail("toto@gmail.com ")).toBe(false);
     });
+
+    test('Doit retourner false s\'il n\'y a rien avant l\'arobase', () => {
+        expect(validateEmail("@gmail.com")).toBe(false);
+    });
+
+    test('Doit retourner false s\'il n\'y a rien après l\'arobase', () => {
+        expect(validateEmail("toto@")).toBe(false);
+    });
 });
