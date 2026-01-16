@@ -16,4 +16,9 @@ describe('Email Validator', () => {
     test('Doit retourner true pour un email valide classique', () => {
         expect(validateEmail("toto@gmail.com")).toBe(true);
     });
+
+    test('Doit retourner false si l\'email contient des espaces', () => {
+        expect(validateEmail("toto @gmail.com")).toBe(false);
+        expect(validateEmail("toto@gmail.com ")).toBe(false);
+    });
 });
